@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display the training elements.
+ *
+ * Available variables:
+ * - #course_id: Course id.
+ * - elements: The training elements.
+ */
+#}
+{% set translable = 'In progress' %} 
+{% set translable = ' In Progress' %}
+{% set translable = 'not finished' %}
+
+<div id="{{ 'course_steps_' ~ elements['#course_id'] }}"
+     class="lp_course_steps_wrapper">
+  {{ elements }}
+</div>
+
+

@@ -1,0 +1,220 @@
+{
+    "name": "opigno/opigno-composer",
+    "description": "Opigno LMS",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "authors": [],
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        "asset-packagist": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        "enyo/dropzone": {
+            "type": "package",
+            "package": {
+                "name": "enyo/dropzone",
+                "version": "v5.5.0",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/dropzone/dropzone/archive/refs/tags/v5.5.0.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        "mozilla/pdf.js": {
+            "type": "package",
+            "package": {
+                "name": "mozilla/pdf.js",
+                "version": "v2.4.456",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/mozilla/pdf.js/releases/download/v2.4.456/pdfjs-2.4.456-es5-dist.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        "kenwheeler/slick": {
+            "type": "package",
+            "package": {
+                "name": "kenwheeler/slick",
+                "version": "1.8.1",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/kenwheeler/slick/archive/v1.8.1.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        "furf/jquery-ui-touch-punch": {
+            "type": "package",
+            "package": {
+                "name": "furf/jquery-ui-touch-punch",
+                "version": "master",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/furf/jquery-ui-touch-punch/archive/refs/heads/master.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        "almende/vis": {
+            "type": "package",
+            "package": {
+                "name": "almende/vis",
+                "version": "v4.21.0",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/almende/vis/archive/refs/tags/v4.21.0.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        "woocommerce/flexslider": {
+            "type": "package",
+            "package": {
+                "name": "woocommerce/flexslider",
+                "version": "2.7.2",
+                "type": "drupal-library",
+                "source": {
+                    "url": "https://github.com/woocommerce/FlexSlider.git",
+                    "type": "git",
+                    "reference": "2.7.2"
+                }
+            }
+        }
+    },
+    "require": {
+        "wikimedia/composer-merge-plugin": "2.0",
+        "composer/installers": "*",
+        "cweagans/composer-patches": "^1.7",
+        "drupal/core-composer-scaffold": "~9.5.0",
+        "opigno/opigno_lms": "~3.1.0",
+        "drupal/honeypot": "^2.1",
+        "drupal/commerce_recurring": "^1.0@RC",
+        "drupal/commerce_license": "^3.0@RC",
+        "drupal/admin_toolbar": "^3.4",
+        "drupal/commerce_paypal": "^1.4",
+        "drupal/twig_tweak": "^3.2",
+        "drupal/commerce_cart_redirection": "^3.1",
+        "drupal/languageicons": "^1.0@beta",
+        "drupal/aristotle": "^3.1",
+        "drupal/pathauto": "^1.11",
+        "drupal/inline_entity_form": "^1.0@RC",
+        "drupal/entity": "^1.3",
+        "drupal/bootstrap_layout_builder": "^2.1",
+        "drupal/views_bootstrap": "^5.4",
+        "drupal/layout_builder_blocks": "^1.1",
+        "drush/drush": "^11.6",
+        "drupal/backup_migrate": "^5.0",
+        "drupal/flexslider": "^2.0",
+        "woocommerce/flexslider": "~2.0",
+        "drupal/symfony_mailer": "^1.2",
+        "drupal/disable_messages": "^2.1",
+        "drupal/imagemagick": "^3.4",
+        "drupal/commerce_email": "^1.1",
+        "drupal/tms": "^1.0"
+    },
+    "require-dev": {
+        "drupal/console": "~1.0"
+    },
+    "replace": {
+        "h5p/h5p-core": "*",
+        "h5p/h5p-editor": "*"
+    },
+    "config": {
+        "sort-packages": false,
+        "preferred-install": {
+            "*": "dist"
+        },
+        "allow-plugins": {
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "drupal/core-composer-scaffold": true,
+            "wikimedia/composer-merge-plugin": true,
+            "drupal/console-extend-plugin": true,
+            "topfloor/composer-cleanup-vcs-dirs": true
+        }
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "installer-paths": {
+            "web/core": [
+                "type:drupal-core"
+            ],
+            "web/libraries/{$name}": [
+                "type:drupal-library"
+            ],
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "web/libraries/ckeditor": [
+                "type:drupal-library-ckeditor"
+            ],
+            "drush/Commands/{$name}": [
+                "type:drupal-drush"
+            ]
+        },
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
+            },
+            "file-mapping": {
+                "[web-root]/sites/development.services.yml": false,
+                "[web-root]/sites/default/default.services.yml": false,
+                "[web-root]/sites/default/default.settings.php": false
+            }
+        },
+        "enable-patching": true,
+        "composer-exit-on-patch-failure": false,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "patches": {
+            "drupal/commerce": {
+                "[3257723]-PHP 8.1 Calling static trait method is deprecated": "https://www.drupal.org/files/issues/2022-01-10/commerce-calling_trait_static_method_deprecated-3257723-2.patch",
+                "FutureD Customizations": "patches/commerce_futured_customizations.patch"
+            },
+            "drupal/commerce_paypal": {
+                "UNILATERAL reason paypal status": "patches/commerce_paypal_unilateral_reason.patch"
+            },
+            "drupal/message": {
+                "[3180999]-Notice: Undefined index getText()": "https://git.drupalcode.org/issue/message-3180999/-/commit/7f6c2533ef75207dcda228223b132ee834e5a84d.patch"
+            },
+            "drupal/group": {
+                "[3210808]-uasort deprecation in PHP 8": "https://www.drupal.org/files/issues/2021-04-26/uasort-comparison-3210808-2.patch"
+            },
+            "drupal/opigno_learning_path": {
+                "last link empty": "patches/opigno_learning_path.patch"
+            },
+            "drupal/opigno_dashboard": {
+                "futured customizations": "patches/opigno_dashboard_futured_customizations.patch"
+            },
+            "drupal/opigno_module": {
+                "[3365259] - Argument #2 ($crp) must be of type string": "https://www.drupal.org/files/issues/2023-06-30/error_string_to_array_fillin_h5p.patch"
+            },
+            "drupal/bootstrap_styles": {
+                "[3315218] - Fix not loading bootstrap_styles/aos.local or bootstrap_styles/aos.remote library": "https://www.drupal.org/files/issues/2023-01-25/3315218-17--1-0-x.patch"
+            },
+            "drupal/aristotle": {
+                "Show login form on user/login": "patches/aristotle_futured_functionalities.patch"
+            },
+            "drupal/opigno_certificate": {
+                "[3388648] - Show certificate in user language": "https://www.drupal.org/files/issues/2023-09-21/3388648-Show_certificate_in_user_language-3.patch"
+            }
+        }
+    }
+}

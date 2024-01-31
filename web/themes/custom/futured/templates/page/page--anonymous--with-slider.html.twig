@@ -1,0 +1,151 @@
+<main class="page-main page-main-login" role="main">
+  {{ header }}
+  {{ page.help }}
+  <div class="login-container2">
+    {{ page.top }}
+  </div>
+
+{% if route_name == 'view.frontpage.page_1' %}
+  <!-- Hero Section -->
+    <div class="hero-container">
+    <div class="container">
+      <div class="row d-flex flex-wrap align-items-center pt-3">
+        <div class="col-lg-6 align-items-left">
+          <div class="tagline">
+            {{  drupal_block('block_content:8d9dcc4b-bfcc-41f2-8a11-f3ef170fe63d', {title: 'hidden'}) }}
+          </div>
+          <div class="add-to-cart-subscription">
+            {{ drupal_block('commerce_cart', {title: 'hidden'}) }}
+          </div>
+        </div>
+
+        <div class="col-lg-6 d-sm-none d-none d-lg-block  hero-img  align-items-center">
+          <!-- Your image here -->
+          <img src="/themes/custom/futured/assets/welcometol3arn.png" alt="Welcome to L3arn: Crypto Collaborative Learning" class="img-fluid">
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="text-center features-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="card">
+              <div class="card-body">
+                <span class="features-icon">
+                  <img src="/themes/custom/futured/assets/collectives.png" class="ml-auto mr-auto mb-4" alt="For Collectives">
+                </span>
+                <h3 class="card-title">For Collectives</h3>
+                <p class="card-text">Boost your reach and impact by sharing your expertise. We provide the platform; you shape the future of education.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-5">
+            <div class="card second-card">
+              <div class="card-body">
+                <span class="features-icon">
+                  <img src="/themes/custom/futured/assets/learners.png" class="ml-auto mr-auto mb-4" alt="For Collectives">
+                </span>
+                <h3 class="card-title">For Learners</h3>
+                <p class="card-text">Dive deep into a world of varied courses, meticulously vetted to ensure top-quality learning.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% else %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="user-sidebar">
+          <div class="page-menu pt-3">
+            {{ page.menu }}
+          </div>
+
+          {% block content %}
+          <div class="form-wrapper user-login" data-target="{{ path('user.login') }}"
+            {% if route_name != 'user.login' %}style="display: none;"{% endif %}>
+              <div class="switch-link switch-link-bottom text-center">
+              {% if register != 'admin_only' %}
+                <div><a href="{{ path('user.register') }}">{{ 'Create new account'|t }}</a></div>
+              {% endif %}
+            </div>
+            <h1>{{ 'LOGIN IN TO GEEKPROVIDER'|t }}</h1>
+            {{ login_form }}
+            <div class="status_messages">
+              {{ page.status_messages }}
+            </div>
+
+          </div>
+
+          <div class="form-wrapper user-password" data-target="{{ path('user.pass') }}"
+            {% if route_name != 'user.pass' %}style="display: none;"{% endif %}>
+            <div class="switch-link switch-link-bottom text-center">
+              <div><a href="{{ path('user.login') }}">{{ 'Login'|t }}</a></div>
+
+              {% if register != 'admin_only' %}
+                <div><a href="{{ path('user.register') }}">{{ 'Create new account'|t }}</a></div>
+              {% endif %}
+            </div>
+
+            <h1>{{ 'REQUEST NEW PASSWORD'|t }}</h1>
+
+            <div class="subtitle">{{ 'Enter your email address below and we\'ll'|t }}
+              <br>
+              {{ 'send you password reset instructions.'|t }}
+            </div>
+
+            {{ password_form }}
+
+            <div class="status_messages">
+              {{ page.status_messages }}
+            </div>
+
+
+          </div>
+          {% if register != 'admin_only' %}
+            <div class="form-wrapper user-register" data-target="{{ path('user.register') }}"
+              {% if route_name != 'user.register' %}style="display: none;"{% endif %}>
+                <div class="switch-link switch-link-bottom text-center">
+                  <div><a href="{{ path('user.login') }}">{{ 'Login'|t }}</a></div>
+                </div>
+
+              <h1>{{ 'CREATE NEW ACCOUNT'|t }}</h1>
+
+              {{ register_form }}
+
+              <div class="status_messages">
+                {{ page.status_messages }}
+              </div>
+
+            </div>
+          {% endif %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endif %}
+
+
+
+</main>
+
+<div class="page-footer" role="banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="footer-content">
+          {{ page.footer }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

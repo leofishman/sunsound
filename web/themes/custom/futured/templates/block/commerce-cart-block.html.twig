@@ -1,0 +1,21 @@
+{% if count >= 1 %}
+    <div{{ attributes}}>
+      <div class="cart-block--summary">
+        <a class="cart-block--link__expand" href="{{ url }}">
+          <span class="cart-block--summary__icon">{{ icon }}</span>
+          <span class="cart-block--summary__count">{{ count_text }}</span>
+        </a>
+      </div>
+      {% if content %}
+      <div class="cart-block--contents__expanded">
+        <div class="cart-block--contents__inner">
+          <div class="cart-block--contents__items">
+            {{ content }}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </div> 
+{% else %}
+    {{  drupal_block('views_block:subscription-block_1', {title: 'hidden'}) }}  
+{% endif %}

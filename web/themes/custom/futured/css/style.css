@@ -1,0 +1,125 @@
+/* Example css file */
+
+#views-exposed-form-opigno-training-catalog-training-catalogue ul.dropdown-menu.inner{
+  max-height: 220px !important;
+  overflow-y: auto;
+  border-top: 1px solid var(--desktop-button-color);
+  border-radius: .625rem;}
+
+#views-exposed-form-opigno-training-catalog-training-catalogue .bootstrap-select > select {
+  max-height: 240px !important;
+  overflow: hidden;
+}
+
+.hero-container {
+  background-color: #cee4f2;
+}
+
+#commerce-order-item-add-to-cart-form-commerce-product-1 label.js-form-required.form-required {
+  display: none;
+}
+
+
+/* Add this CSS to your stylesheet or in a style tag within the HTML document */
+#commerce-order-item-add-to-cart-form-commerce-product-1 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* #commerce-order-item-add-to-cart-form-commerce-product-1 .field {
+  padding-bottom: 0!important;
+}
+
+#commerce-order-item-add-to-cart-form-commerce-product-1 .js-form-type-select  {
+  margin-bottom: 0!important;
+}
+
+#commerce-order-item-add-to-cart-form-commerce-product-1 #edit-submit--7 {
+  min-height: 2rem;
+  min-width: 9.75rem;
+  padding: .625rem .9375rem;
+} */
+
+
+#commerce-order-item-add-to-cart-form-commerce-product-1 .attribute-widgets {
+  flex: 1;
+  margin-right: 10px; /* Adjust margin as needed */
+}
+
+#commerce-order-item-add-to-cart-form-commerce-product-1 .attribute-widgets .js-form-item.form-item.js-form-type-select {
+  margin-bottom: 0;
+}
+
+#commerce-order-item-add-to-cart-form-commerce-product-1 .attribute-widgets .js-form-item.form-item.js-form-type-select .field {
+  padding-bottom: 0;
+}
+
+@media screen and (max-width: 460px) {
+  #commerce-order-item-add-to-cart-form-commerce-product-1 .attribute-widgets .js-form-item.form-item.js-form-type-select .field {
+    padding-bottom: 20px;
+  }
+}
+
+
+#commerce-order-item-add-to-cart-form-commerce-product-1 .form-actions {
+  flex: 0;
+  #edit-submit--7 {
+    border-radius: 1rem;
+  }
+}
+
+
+.main-menu__item__left {
+  flex:0;
+}
+
+.main-menu__item__right {
+  flex:1;
+}
+
+.main-menu__link.login {
+  display: none;
+}
+
+.tagline, .tagline h2 {
+  color: #2a678c;
+  padding-top: 30px;
+}
+
+.card {
+  background-color: #d9d9d9 !important;
+}
+
+.features-section {
+  background: linear-gradient(to right, #275e85, #ffad87);
+  /* You can adjust the direction of the gradient (to right, to left, to top, to bottom, etc.) as needed. */
+  margin: 0;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black; /* Set text color to white or any contrasting color */
+}
+
+
+.features-section .card {
+  border-radius: 1.5rem;
+}
+
+.page-footer {
+  margin-top: 0 !important;
+}
+
+@media screen and (max-width: 990px) {
+  .tagline {
+    margin-top: 150px;
+  }
+
+  .main-menu__link.login {
+    display: block;
+  }
+  .features-section .second-card {
+    margin-top: 50px;
+  }
+}

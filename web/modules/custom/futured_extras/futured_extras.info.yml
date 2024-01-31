@@ -1,0 +1,5 @@
+name: futured
+type: module
+description: futured extra functionalities
+package: Custom
+core_version_requirement: ^9 || ^10

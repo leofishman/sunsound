@@ -1,0 +1,13 @@
+diff --git a/src/Plugin/Commerce/PaymentGateway/Checkout.php b/src/Plugin/Commerce/PaymentGateway/Checkout.php
+index c85bfd4..740e3dd 100644
+--- a/src/Plugin/Commerce/PaymentGateway/Checkout.php
++++ b/src/Plugin/Commerce/PaymentGateway/Checkout.php
+@@ -489,7 +489,7 @@ class Checkout extends OffsitePaymentGatewayBase implements CheckoutInterface {
+     // to accept the payment, in case manual review is needed.
+     if ($state === 'pending' && $remote_state === 'pending') {
+       $reason = $remote_payment['status_details']['reason'];
+-      if ($reason === 'PENDING_REVIEW') {
++      if ($reason === 'PENDING_REVIEW' or $reason === 'UNILATERAL') {
+         $state = 'authorization';
+       }
+       else {

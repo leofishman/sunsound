@@ -1,0 +1,27 @@
+.our-team-image img {
+  border-radius: 50%;
+}
+
+.our-team-item {
+  &:hover {
+    opacity: 0.6;
+    transition: opacity 0.3s ease-in-out;
+  }
+  h4 {
+    text-overflow: ellipsis;
+    a {
+    text-decoration: none;
+      &:hover {
+        transition: color 0.3s ease-in-out;
+        color: $clr-desktop-button-color;
+      }
+    }
+  }
+}
+
+.content-team {
+  margin-top: -10px;
+}
+.our-team-image.text-center.d-flex.justify-content-center {
+  padding-top: 10px;
+}

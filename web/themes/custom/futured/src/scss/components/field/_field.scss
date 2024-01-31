@@ -1,0 +1,21 @@
+.field {
+  padding-bottom: 1rem;
+}
+.field__label {
+  /* font-size: 1.1875rem; */
+  font-weight: bold;
+}
+
+.page-node-news {
+  .node--view-mode-full {
+    .field--name-field-image {
+      padding-left: 2rem;
+      float: right;
+
+      img { 
+        border: 1px solid;
+      }
+    }    
+  }
+
+}

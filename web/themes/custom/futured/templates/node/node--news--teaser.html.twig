@@ -1,0 +1,29 @@
+<article{{ attributes.addClass('node', 'node--teaser', 'node--news', 'node--news--teaser') }}>
+  <div class="teaser-content">
+    <div class="row">
+      {# Render the node image #}
+      <div class="col-md-4">
+        {% if node.field_image.entity %}
+          <div class="teaser-image">
+            {{ content.field_image }}
+          </div>
+        {% endif %}
+      </div>
+      
+      {# Render the node title and body in the right column #}
+      <div class="col-md-8">
+        <h2{{ title_attributes }}><a href="{{url}}">{{ node.label }}</a></h2>
+        
+        {# Render the node body #}
+        <div class="teaser-body">
+          {{ content.body }}
+        </div>
+        
+        {# Render the read more link #}
+        <div class="read-more">
+          <a href="{{ url }}" class="button">{{ 'Read more'|t }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

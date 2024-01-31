@@ -1,0 +1,89 @@
+diff --git a/modules/checkout/src/Plugin/Commerce/CheckoutPane/Login.php b/modules/checkout/src/Plugin/Commerce/CheckoutPane/Login.php
+index 4b8422e4..ac15da8d 100644
+--- a/modules/checkout/src/Plugin/Commerce/CheckoutPane/Login.php
++++ b/modules/checkout/src/Plugin/Commerce/CheckoutPane/Login.php
+@@ -226,7 +226,7 @@ class Login extends CheckoutPaneBase implements CheckoutPaneInterface, Container
+ 
+     $pane_form['returning_customer'] = [
+       '#type' => 'fieldset',
+-      '#title' => $this->t('Returning Customer'),
++      '#title' => $this->t('Returning Student'),
+       '#attributes' => [
+         'class' => [
+           'form-wrapper__login-option',
+@@ -300,7 +300,7 @@ class Login extends CheckoutPaneBase implements CheckoutPaneInterface, Container
+     $pane_form['register'] = [
+       '#parents' => array_merge($pane_form['#parents'], ['register']),
+       '#type' => 'fieldset',
+-      '#title' => $this->t('New Customer'),
++      '#title' => $this->t('New Student'),
+       '#access' => $this->configuration['allow_registration'],
+       '#attributes' => [
+         'class' => [
+diff --git a/modules/order/commerce_order.module b/modules/order/commerce_order.module
+index 61466b91..43219b02 100644
+--- a/modules/order/commerce_order.module
++++ b/modules/order/commerce_order.module
+@@ -297,8 +297,8 @@ function commerce_order_form_profile_type_form_alter(array &$form, FormStateInte
+   ];
+   $form['commerce_order']['customer_profile_type'] = [
+     '#type' => 'checkbox',
+-    '#title' => t('Profiles of this type represent Commerce customer profiles'),
+-    '#description' => t("Used to store the customer's billing or shipping information."),
++    '#title' => t('Profiles of this type represent Commerce student profiles'),
++    '#description' => t("Used to store the student's billing or shipping information."),
+     '#default_value' => $customer_flag,
+     // The flag is always TRUE for the profile type provided by Commerce.
+     '#disabled' => $profile_type->id() == 'customer' || $address_has_data,
+diff --git a/modules/order/src/Entity/Order.php b/modules/order/src/Entity/Order.php
+index aac1c6cf..10bb760f 100644
+--- a/modules/order/src/Entity/Order.php
++++ b/modules/order/src/Entity/Order.php
+@@ -789,8 +789,8 @@ class Order extends CommerceContentEntityBase implements OrderInterface {
+       ->setDisplayConfigurable('view', TRUE);
+ 
+     $fields['uid'] = BaseFieldDefinition::create('entity_reference')
+-      ->setLabel(t('Customer'))
+-      ->setDescription(t('The customer.'))
++      ->setLabel(t('Student'))
++      ->setDescription(t('The Student.'))
+       ->setSetting('target_type', 'user')
+       ->setSetting('handler', 'default')
+       ->setDefaultValueCallback('Drupal\commerce_order\Entity\Order::getCurrentUserId')
+diff --git a/modules/order/src/Form/CustomerFormTrait.php b/modules/order/src/Form/CustomerFormTrait.php
+index 27c196f5..f8e15f13 100644
+--- a/modules/order/src/Form/CustomerFormTrait.php
++++ b/modules/order/src/Form/CustomerFormTrait.php
+@@ -46,7 +46,7 @@ trait CustomerFormTrait {
+ 
+     $form['customer'] = [
+       '#type' => 'fieldset',
+-      '#title' => t('Customer'),
++      '#title' => t('Student'),
+       '#prefix' => '<div id="' . $wrapper_id . '">',
+       '#suffix' => '</div>',
+     ];
+@@ -59,8 +59,8 @@ trait CustomerFormTrait {
+       ],
+       '#required' => TRUE,
+       '#options' => [
+-        'existing' => t('Existing customer'),
+-        'new' => t('New customer'),
++        'existing' => t('Existing student'),
++        'new' => t('New student'),
+       ],
+       '#default_value' => $selected_customer_type,
+       '#ajax' => [
+diff --git a/modules/order/src/OrderListBuilder.php b/modules/order/src/OrderListBuilder.php
+index d1cb2cb1..6341ff06 100644
+--- a/modules/order/src/OrderListBuilder.php
++++ b/modules/order/src/OrderListBuilder.php
+@@ -63,7 +63,7 @@ class OrderListBuilder extends EntityListBuilder {
+         'class' => [RESPONSIVE_PRIORITY_MEDIUM],
+       ],
+       'customer' => [
+-        'data' => $this->t('Customer'),
++        'data' => $this->t('Student'),
+         'class' => [RESPONSIVE_PRIORITY_LOW],
+       ],
+       'state' => [

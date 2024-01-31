@@ -1,0 +1,40 @@
+<?php
+use Drupal\taxonomy\Entity\Term;
+
+function _check_term_exist ($term_name, $vid) {
+  $query = \Drupal::entityQuery('taxonomy_term');
+  $query->condition('vid', $vid);
+  $query->condition('name', $term_name);
+  $tids = $query->execute();
+  return $tids;
+}
+
+function _save_term ($term_name, $vid) {
+  if (_check_term_exist($term_name, $vid)) {
+    return _check_term_exist($term_name, $vid)[array_key_first(_check_term_exist($term_name, $vid))];
+  }
+  $term = Term::create([
+    'vid' => $vid,
+    'name' => $term_name,
+    'parent' => [],
+  ]);
+  $term->save();
+  return $term->id();
+}
+
+function futured_extras_preprocess_status_messages(&$variables) {
+  // Hide available updates error to users
+  if ($variables['message_list']['error'] && $variables['user']->id() != 1) {
+    foreach ($variables['message_list']['error'] as $key => $message) {
+      $messageString = substr((string) $message, 0, 40);
+      if ($messageString == 'There is a security update available for' || $messageString == 'There are security updates available for') {
+        unset($variables['message_list']['error'][$key]);
+      }
+    }
+
+    if (count($variables['message_list']['error']) == 0) {
+      unset($variables['message_list']['error']);
+    }
+  }
+
+}

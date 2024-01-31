@@ -1,0 +1,6 @@
+services:
+  futured_extras.entitiesQueryService:
+    class: Drupal\futured_extras\entitiesQueryService
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: 'cache.default' }

@@ -1,0 +1,13 @@
+diff --git a/src/Plugin/Block/BackLinkBlock.php b/src/Plugin/Block/BackLinkBlock.php
+index d8f9bd8..2d65d07 100644
+--- a/src/Plugin/Block/BackLinkBlock.php
++++ b/src/Plugin/Block/BackLinkBlock.php
+@@ -88,7 +88,7 @@ class BackLinkBlock extends SystemBreadcrumbBlock implements ContainerFactoryPlu
+     // Get the last clickable link.
+     for ($i = count($links); $i >= 0; $i--) {
+       $last_link = array_pop($links);
+-      $last_url = $last_link->getUrl()->toString();
++      $last_url = $last_link ? $last_link->getUrl()->toString() : NULL;
+       if ($last_url) {
+         break;
+       }

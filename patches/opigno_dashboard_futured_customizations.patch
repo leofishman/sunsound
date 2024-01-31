@@ -1,0 +1,30 @@
+diff --git a/src/Plugin/Block/SiteHeaderBlock.php b/src/Plugin/Block/SiteHeaderBlock.php
+index e6afa98..dc095d9 100644
+--- a/src/Plugin/Block/SiteHeaderBlock.php
++++ b/src/Plugin/Block/SiteHeaderBlock.php
+@@ -229,12 +229,6 @@ class SiteHeaderBlock extends BlockBase implements ContainerFactoryPluginInterfa
+           'external' => TRUE,
+           'icon_class' => 'fi-rr-interrogation',
+         ],
+-        'review' => [
+-          'title' => $this->t('Review Opigno'),
+-          'path' => 'https://reviews.capterra.com/new/135113?utm_source=vp&utm_medium=none&utm_term=&utm_content=&utm_campaign=vendor_request',
+-          'external' => TRUE,
+-          'icon_class' => 'fi-rr-comment',
+-        ],
+         'logout' => [
+           'title' => $this->t('Logout'),
+           'path' => Url::fromRoute('user.logout')->toString(),
+diff --git a/templates/opigno-site-header.html.twig b/templates/opigno-site-header.html.twig
+index 7947575..5500e5b 100644
+--- a/templates/opigno-site-header.html.twig
++++ b/templates/opigno-site-header.html.twig
+@@ -22,7 +22,7 @@
+       {% if not is_anonymous %}
+       <div class="col-lg-9 col-xxl-8 col-left">
+       {% else %}
+-      <div class="col-lg-12 col-xxl-12 col-left">
++      <div class="col-lg-12 col-xxl-12 col-right">
+       {% endif %}
+         {# Logo. #}
+         {% if logo is not empty %}

@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if content %}
+  {{ content }}
+{% endif %}
+<div class="container my-4 py-4">
+<div class="row">
+<div class="col-12">
+<p class="text-left"><span class="small"><strong>© {{ 'now' | date('Y') }} GeekProvider LTD.</strong> All rights reserved. Todos los derechos reservados.&nbsp;</span></p>
+</div>
+</div>
+</div>
