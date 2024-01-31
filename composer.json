@@ -200,9 +200,6 @@
             "drupal/opigno_learning_path": {
                 "last link empty": "patches/opigno_learning_path.patch"
             },
-            "drupal/opigno_dashboard": {
-                "futured customizations": "patches/opigno_dashboard_futured_customizations.patch"
-            },
             "drupal/opigno_module": {
                 "[3365259] - Argument #2 ($crp) must be of type string": "https://www.drupal.org/files/issues/2023-06-30/error_string_to_array_fillin_h5p.patch"
             },
