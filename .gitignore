@@ -36,3 +36,6 @@ private
 drush
 .vscode
 *.sql*.gz
+
+
+/.ddev/
